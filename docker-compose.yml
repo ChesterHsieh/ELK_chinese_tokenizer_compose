@@ -4,6 +4,7 @@ services:
   elasticsearch:
     build:
       context: elasticsearch/
+      dockerfile: ./Dockerfile
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
