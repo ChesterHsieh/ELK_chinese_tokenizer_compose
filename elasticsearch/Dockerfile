@@ -48,7 +48,7 @@ RUN wget https://github.com/sing1ee/elasticsearch-jieba-plugin/archive/refs/tags
 # unzip jieba package and edit config
 
 RUN mkdir -p /usr/share/elasticsearch/plugins/jieba\ 
-    && mv build/distributions/elasticsearch-jieba-plugin-7.4.2.zip /usr/share/elasticsearch/plugins/jieba/\
+    && mv /tmp/jieba/elasticsearch-jieba-plugin-7.4.2/build/distributions/elasticsearch-jieba-plugin-7.4.2.zip /usr/share/elasticsearch/plugins/jieba/\
     && cd /usr/share/elasticsearch/plugins/jieba \
     && unzip elasticsearch-jieba-plugin-7.4.2.zip \
     && mkdir -p /usr/share/elasticsearch/config/stopwords \
