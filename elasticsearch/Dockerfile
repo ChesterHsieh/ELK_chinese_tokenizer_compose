@@ -41,12 +41,14 @@ RUN yum install -y java-1.8.0-openjdk-devel \
 RUN wget https://github.com/sing1ee/elasticsearch-jieba-plugin/archive/refs/tags/v7.4.2.zip -P /tmp \    
     && unzip -d /tmp/jieba/ /tmp/v7.4.2.zip \
     && cd /tmp/jieba/elasticsearch-jieba-plugin-7.4.2/ \
+    && source /etc/profile.d/gradle.sh \
     && gradle pz
-    && mv build/distributions/elasticsearch-jieba-plugin-7.4.2.zip /usr/share/elasticsearch/plugins/jieba/
 
 
 # unzip jieba package and edit config
+
 RUN mkdir -p /usr/share/elasticsearch/plugins/jieba\ 
+    && mv build/distributions/elasticsearch-jieba-plugin-7.4.2.zip /usr/share/elasticsearch/plugins/jieba/\
     && cd /usr/share/elasticsearch/plugins/jieba \
     && unzip elasticsearch-jieba-plugin-7.4.2.zip \
     && mkdir -p /usr/share/elasticsearch/config/stopwords \
